@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard Server Minecraft LandFox Official</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: url('https://telegra.ph/file/2a46a0d16133c035e062e.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .leaderboard {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .leaderboard h2 {
+    color: #333;
+  }
+
+  .leaderboard p {
+    color: #666;
+  }
+
+  .player-list {
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .player-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+
+  .player-details {
+    display: flex;
+    align-items: center;
+  }
+
+  .player-number {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+  }
+
+  .player-icon {
+    font-size: 24px;
+    color: #333;
+    margin-right: 10px;
+  }
+
+  .player-name {
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .player-rank-mvp {
+    font-weight: bold;
+    color: #2ecc71; /* Warna untuk MVP */
+    margin-right: 5px;
+  }
+
+  .player-rank-vip {
+    font-weight: bold;
+    color: #3498db; /* Warna untuk VIP */
+    margin-right: 5px;
+  }
+
+  .player-level {
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+  }
+
+  .trophy-icon {
+    font-size: 20px;
+    color: #f39c12; /* Warna untuk ikon piala */
+    margin-right: 5px;
+  }
+
+  .back-button {
+    margin-top: 20px;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background-color: #555;
+  }
+
+  .back-icon {
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="leaderboard">
+  <h2>Leaderboard Server Minecraft LandFox Official</h2>
+  <p>Ini adalah daftar pemain teratas di server Minecraft LandFox Official. Lihat siapa yang mendominasi!</p>
+  <div class="player-list">
+    <div class="player-item">
+      <div class="player-details">
+        <span class="player-number">1.</span>
+        <i class="fas fa-trophy trophy-icon"></i>
+        <i class="fas fa-user player-icon"></i>
+        <span class="player-name">MCPAKEL</span>
+      </div>
+      <span class="player-rank-mvp">SUPREM</span>
+      <span class="player-level">12</span>
+    </div>
+    <div class="player-item">
+      <div class="player-details">
+        <span class="player-number">2.</span>
+        <i class="fas fa-trophy trophy-icon"></i>
+        <i class="fas fa-user player-icon"></i>
+        <span class="player-name">YtAlexPakel</span>
+      </div>
+      <span class="player-rank-vip">LEGEND</span>
+      <span class="player-level">8</span>
+    </div>
+    <div class="player-item">
+      <div class="player-details">
+        <span class="player-number">3.</span>
+        <i class="fas fa-trophy trophy-icon"></i>
+        <i class="fas fa-user player-icon"></i>
+        <span class="player-name">-</span>
+      </div>
+      <span class="player-rank-vip">MVP</span>
+      <span class="player-level">8</span>
+    </div>
+        <div class="player-item">
+      <div class="player-details">
+        <span class="player-number">4.</span>
+        <i class="fas fa-trophy trophy-icon"></i>
+        <i class="fas fa-user player-icon"></i>
+        <span class="player-name">-</span>
+      </div>
+      <span class="player-rank-vip">VIP</span>
+      <span class="player-level">8</span>
+    </div>
+        <div class="player-item">
+      <div class="player-details">
+        <span class="player-number">5.</span>
+        <i class="fas fa-trophy trophy-icon"></i>
+        <i class="fas fa-user player-icon"></i>
+        <span class="player-name">-</span>
+      </div>
+      <span class="player-rank-vip">GG</span>
+      <span class="player-level">8</span>
+    </div>
+    <!-- Tambahkan lebih banyak item pemain sesuai kebutuhan -->
+  </div>
+  <div class="back-button">
+    <a href="dasbor.html" class="back-btn"><i class="fas fa-chevron-left back-icon"></i>Kembali</a>
+  </div>
+</div>
+<script>
+  // Script JavaScript (jika diperlukan)
+</script>
+<?php
+  // Script PHP (jika diperlukan)
+?>
+</body>
+</html>

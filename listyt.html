@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>List Video YouTube - SERVER</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: url('https://telegra.ph/file/dd53361fa78a3fbeb07eb.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .video-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .video-list {
+    margin-top: 20px;
+    max-width: 800px;
+  }
+
+  .video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .video-item.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+  }
+
+  .video-embed {
+    width: 100%;
+    height: 150px;
+    border: none;
+  }
+
+  .video-embed.fullscreen {
+    width: 80%;
+    height: 60%;
+  }
+
+  .video-title {
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .video-title.fullscreen {
+    display: none;
+  }
+
+  .back-button {
+    margin-top: 20px;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #dd4b39;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background-color: #d73925;
+  }
+
+  .back-icon {
+    margin-right: 10px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  .page-btn {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .video-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .video-like {
+    display: flex;
+    align-items: center;
+    color: #777;
+  }
+
+  .video-like-icon {
+    margin-right: 5px;
+  }
+
+  .video-share {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .video-share-icon {
+    margin-right: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="video-container">
+  <h2>List Video YouTube - SERVER MINECRAFT</h2>
+  <p>Ini adalah daftar video YouTube Server Minecraft. Lihat petualangan seru yang kami hadirkan!</p>
+  <div class="video-list">
+    <div class="video-item">
+      <iframe class="video-embed" src="https://www.youtube.com/embed/LUCJNvD5TgI?si=kHIVV2WcsdNf1Dql" frameborder="0" allowfullscreen></iframe>
+      <span class="video-title">Judul Video 1</span>
+      <div class="video-icons">
+        <div class="video-like">
+          <i class="fas fa-thumbs-up video-like-icon"></i>
+          <span class="like-count">100</span>
+        </div>
+        <div class="video-share" onclick="shareVideo('https://www.youtube.com/embed/LUCJNvD5TgI?si=kHIVV2WcsdNf1Dql')">
+          <i class="fas fa-share-alt video-share-icon"></i>
+          <span>Bagikan</span>
+        </div>
+      </div>
+    </div>
+    <!-- Tambahkan lebih banyak item video sesuai kebutuhan -->
+  </div>
+  <div class="pagination" id="pagination">
+    <a href="#" class="page-btn">1</a>
+    <a href="#" class="page-btn">2</a>
+    <a href="#" class="page-btn">3</a>
+  </div>
+  <div class="back-button">
+    <a href="dasbor.html" class="back-btn"><i class="fas fa-chevron-left back-icon"></i>Kembali</a>
+  </div>
+</div>
+<script>
+  const videoItems = document.querySelectorAll('.video-item');
+  const pageButtons = document.querySelectorAll('.page-btn');
+
+  videoItems.forEach(item => {
+    const iframe = item.querySelector('.video-embed');
+    const title = item.querySelector('.video-title');
+    const likeCount = item.querySelector('.like-count');
+
+    if (iframe) {
+      const videoSrc = iframe.src;
+      const videoId = videoSrc.split('/').pop().split('?')[0];
+      const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=AIzaSyDM9hyIAOYcZrQUyF8lwsei1B08JzXDjpg`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.items && data.items.length > 0) {
+            const videoTitle = data.items[0].snippet.title;
+            const videoLikes = data.items[0].statistics.likeCount;
+            title.textContent = videoTitle;
+            likeCount.textContent = videoLikes;
+          }
+        });
+    }
+
+    item.addEventListener('click', () => {
+      item.classList.toggle('fullscreen');
+      if (iframe) {
+        iframe.classList.toggle('fullscreen');
+      }
+      if (title) {
+        title.classList.toggle('fullscreen');
+      }
+    });
+  });
+
+  pageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const pageNum = parseInt(button.textContent);
+      showPage(pageNum);
+    });
+  });
+
+  function showPage(pageNum) {
+    const videoList = document.querySelector('.video-list');
+    const videosPerPage = 5;
+
+    const startIndex = (pageNum - 1) * videosPerPage;
+    const endIndex = startIndex + videosPerPage;
+
+    const allVideoItems = Array.from(videoItems);
+
+    allVideoItems.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    for (let i = startIndex; i < endIndex && i < allVideoItems.length; i++) {
+      allVideoItems[i].style.display = 'block';
+    }
+  }
+
+  function shareVideo(videoUrl) {
+    // Ganti tautan ini dengan logika sesuai dengan platform berbagi yang diinginkan
+    alert(`Video dibagikan! URL: ${videoUrl}`);
+  }
+</script>
+</body>
+</html>

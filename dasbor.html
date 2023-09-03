@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dasbor Server Minecraft LandFox Official</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: url('https://telegra.ph/file/2a46a0d16133c035e062e.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  .dashboard-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .dashboard h2 {
+    color: #333;
+  }
+
+  .dashboard p {
+    color: #666;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .btn:hover::before {
+    transform: translateX(-50%) scaleX(1.2);
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .btn i {
+    margin-right: 10px;
+  }
+
+</style>
+</head>
+<body>
+<audio id="clickSound" src="click.mp3"></audio>
+<div class="dashboard">
+  <div class="dashboard-content">
+    <h2>Dasbor Server Minecraft LandFox Official</h2>
+    <p>Selamat datang di Dasbor Server Minecraft LandFox Official. Di sini Anda dapat mengakses berbagai informasi terkait server kami.</p>
+    <p>Jangan ragu untuk menjelajahi fitur-fitur yang kami sediakan!</p>
+    <div class="btn-container">
+      <a href="info.html" class="btn" onclick="playClickSound()"><i class="fas fa-info-circle"></i>Info</a>
+      <a href="support.html" class="btn" onclick="playClickSound()"><i class="fas fa-hands-helping"></i>Support</a>
+      <a href="donasi.html" class="btn">
+        <i class="fas fa-donate donate-icon"></i>Donasi Sekarang
+    </a>
+      <a href="tim.html" class="btn" onclick="playClickSound()"><i class="fas fa-users"></i>Tim</a>
+      <a href="listgambar.html" class="btn" onclick="playClickSound()"><i class="fas fa-images"></i>Album</a>
+
+      <a href="listyt.html" class="btn" onclick="playClickSound()"><i class="fab fa-youtube"></i>YT LANDFOX</a>
+      <a href="leaderboard.html" class="btn" onclick="playClickSound()"><i class="fas fa-trophy"></i>Leaderboard</a>
+      <a href="notfound.html" class="btn" onclick="playClickSound()"><i class="fas fa-server"></i>Free Hosting</a>
+    </div>
+  </div>
+</div>
+<script>
+  function playClickSound() {
+    const clickSound = document.getElementById("clickSound");
+    clickSound.play();
+  }
+</script>
+<?php
+  // Script PHP (jika diperlukan)
+?>
+</body>
+</html>
